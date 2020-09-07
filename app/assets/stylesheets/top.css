@@ -1,0 +1,54 @@
+/* ヘッダー */
+.top-page-header {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.top-img-content {
+  text-decoration: none;
+}
+
+.okodukai-icon {
+  width: 10vw;
+}
+
+.top-okodukai {
+  width: 10vw;
+}
+
+.nav {
+  width: 50vw;
+}
+
+.lists {
+  display: flex;
+}
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 3vw;
+}
+
+.logout {
+  text-decoration: none;
+}
+
+.login {
+  text-decoration: none;
+  margin-right: 3vw;
+}
+
+.sign-up {
+  text-decoration: none;
+}
+/* ヘッダーここまで */
+
+/* メイン */
+.menu-img-content {
+  text-decoration: none;
+}
+
+.menu-icon {
+  width: 10vw;
+}
+/* メインここまで */

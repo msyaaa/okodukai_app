@@ -1,2 +1,38 @@
-<h1>Tops#index</h1>
-<p>Find me in app/views/tops/index.html.erb</p>
+<%# ヘッダー %>
+<header class='top-page-header'>
+  <%= link_to root_path, class:"top-img-content" do %>
+    <%= image_tag("cats-1.png", class:"okodukai-icon") %>
+    <h1 class="top-okodukai">おこづかいちょう</h1>
+  <% end %>
+  <div class="nav">
+    <ul class="lists">
+      <%# if user_signed_in? %>
+        <li><%= link_to "nickname", "#", class: "user-nickname" %></li>
+        <li><%= link_to 'ログアウト', "#", method: :delete, class: "logout" %></li>
+      <%# else %>
+        <li><%= link_to 'ログイン', "#", class: "login" %></li>
+        <li><%= link_to 'アカウントを作る', "#", class: "sign-up" %></li>
+      <%# end %>
+    </ul>
+  </div>
+</header>
+<%# ヘッダーここまで %>
+
+<div class="main">
+  <p>たまったお金</p>
+  <p>もくひょう</p>
+  <div class="menu-contents">
+    <%= link_to "#", class:"menu-img-content" do %>
+      <%= image_tag("cat-1.png", class:"menu-icon") %>
+      <p>ためる</p>
+    <% end %>
+    <%= link_to "#", class:"menu-img-content" do %>
+      <%= image_tag("cat-2.png", class:"menu-icon") %>
+      <p>ひきだす</p>
+    <% end %>
+    <%= link_to "#", class:"menu-img-content" do %>
+      <%= image_tag("cat-3.png", class:"menu-icon") %>
+      <p>りれき</p>
+    <% end %>
+  </div>
+</div>

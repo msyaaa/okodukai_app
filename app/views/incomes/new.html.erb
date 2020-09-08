@@ -6,7 +6,7 @@
         <label class="form-text", for="date">日づけをせんたくしてね！</label>
       </div>
       <div class='input-date'>
-        <%= date_field_tag :date, id:"date" %>
+        <%= f.date_field :date, id:"date" %>
       </div>
     </div>
 
@@ -28,7 +28,7 @@
         <%= f.text_area :description, id:"text", placeholder:"50もじまで" %>
       </div>
     </div>
-    
+
     <div class="save-btn-contents">
       <%= f.submit "けってい" ,class:"save-btn" %>
     </div>

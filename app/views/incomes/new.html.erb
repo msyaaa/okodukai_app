@@ -1,0 +1,36 @@
+<%= form_with model: @income, local: true do |f| %>
+  <%#= render "users/shared/error_messages", resource: @income %>
+  <div class="form-wrap">
+    <div class="form-group">
+      <div class='form-label'>
+        <label class="form-text", for="date">日づけをせんたくしてね！</label>
+      </div>
+      <div class='input-date'>
+        <%= date_field_tag :date, id:"date" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label">
+        <label class="form-text", for="price">ためるお金をにゅうりょくしてね！</label>  
+      </div>
+      <div class="input-price">
+        <%= f.text_field :price, class:"items-text", id:"price", placeholder:"0" %>
+        <span>えん</span>
+      </div>  
+    </div>
+
+    <div class="form-group">
+      <div class='form-label'>
+        <label class="form-text", for="text">ないようを書いてね！</label>  
+      </div>
+      <div class="input-text">
+        <%= f.text_area :description, id:"text", placeholder:"50もじまで" %>
+      </div>
+    </div>
+    
+    <div class="save-btn-contents">
+      <%= f.submit "けってい" ,class:"save-btn" %>
+    </div>
+  </div>
+<% end %>

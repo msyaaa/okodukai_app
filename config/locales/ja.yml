@@ -3,3 +3,7 @@ ja:
    attributes:
      user:
        nickname: ニックネーム
+     income:
+       price: 金がく
+       description: メモ
+       date: 日づけ

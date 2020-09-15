@@ -1,0 +1,102 @@
+<%= render 'shared/header' %>
+
+<button id="income-btn">
+<h1>たまったお金</h1>
+</button>
+<button id="outgo-btn">
+  <h1>つかったお金</h1>
+</button>
+<%# 収入の履歴 %>
+<div id="income-hidden">
+<%= month_calendar events: @incomes do |date, incomes| %>
+  <%= date.day %>
+  <% sum = 0 %>
+  <% incomes.each do |income| %>
+    <% sum += income.price%>
+  <% end %>
+  <% if sum != 0 %>
+    <div class="income-font">
+      <%= sum %>円
+    </div>
+  <% end %>
+<% end %>
+
+<h1>今までの記ろく</h1>
+<ul class='event-contents'>
+  <div class="event-title">
+    <li><span>日づけ</span></li>
+    <li><span>メモ</span></li>
+    <li><span>金がく</span></li>
+  </div>
+  <div class="event-content", id="event-index">
+    <% @incomes.each do |income| %>
+      <li> 
+        <div class='date-content'>
+          <%= income.date.strftime("%Y年%m月%d日") %>
+        </div>
+        <div class='description-content'>
+          <%= income.description %>
+        </div>
+        <div class='price-content'>
+          <%= income.price %>
+          <span>円</span>
+        </div>
+      </li>
+    <% end %>
+  <div>
+</ul>
+</div>
+<%# 収入の履歴ここまで %>
+
+<%#= month_calendar events: @all do |date, all| %>
+  <%#= date.day %>
+  <%# all.each do |i| %>
+    <%# <div> %>
+      <%#= i.price %>
+    <%# </div> %>
+  <%# end %>
+<%# end %>
+
+
+<%# 支出の履歴 %>
+<div id="outgo-hidden">
+<%= month_calendar events: @outgos do |date, outgos| %>
+  <%= date.day %>
+  <% sum = 0 %>
+  <% outgos.each do |outgo| %>
+    <% sum += outgo.price%>
+  <% end %>
+  <% if sum != 0 %>
+    <div class="outgo-font">
+      <%= sum %>円
+    </div>
+  <% end %>
+<% end %>
+
+<h1>今までの記ろく</h1>
+<ul class='event-contents'>
+  <div class="event-title">
+    <li><span>日づけ</span></li>
+    <li><span>メモ</span></li>
+    <li><span>金がく</span></li>
+  </div>
+  <div class="event-content">
+    <% @outgos.each do |outgo| %>
+      <li> 
+        <div class='date-content'>
+          <%= outgo.date.strftime("%Y年%m月%d日") %>
+        </div>
+        <div class='description-content'>
+          <span>メモ</span>
+          <%= outgo.description %>
+        </div>
+        <div class='price-content'>
+          <%= outgo.price %>
+          <span>円</span>
+        </div>
+      </li>
+    <% end %>
+  <div>
+</ul>
+</div>
+<%# 支出の履歴ここまで %>

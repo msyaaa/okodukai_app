@@ -1,0 +1,24 @@
+.event-contents {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+.event-title {
+  display: flex;
+}
+.event-title > li {
+  width: calc(100vw / 3);
+  border: 1px solid black;
+}
+.event-content > li {
+  display: flex;
+}
+.event-content > li > div {
+  width: calc(100vw / 3);
+  border: 1px solid black;
+}
+
+/* .outgo-hidden {
+  display: none
+} */

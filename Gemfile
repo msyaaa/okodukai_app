@@ -60,3 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'rails-i18n'
 gem 'pry-rails'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem "simple_calendar", "~> 2.0"
+gem 'jquery-rails'

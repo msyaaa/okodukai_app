@@ -5,14 +5,17 @@
 <div class="main">
   <p>たまったお金</p>
   <p>目ひょう</p>
-  <%= form_with model: @goal, url: goals_path, class:"goal-form", local: true do |f| %>
+  <% if current_user.present? && @goal.present? %>
+    <div id="data-id" data_id=<%= @goal.id %>></div>
+  <% end %>
+  <%= form_with model: @goal, url: goals_path, class:"goal-form", id:"remove", local: true do |f| %>
     <%#= render "users/shared/error_messages", resource: f.object %>
-    <%= f.text_field :text, placeholder: '目ひょうを入力してね！', class:"input-box" %>
+    <%= f.text_field :text, placeholder: '目ひょうを入力してね！(30文字まで)', class:"input-box" %>
     <%= f.submit "けってい", id:"btn-label", class:"btn-hidden" %>
   <% end %>
-  <% if current_user.present? && @goal.present? %>
-    <%= @goal.text %>
-  <% end %>
+  <%# if current_user.present? && @goal.present? %>
+    <%#= @goal.text %>
+  <%# end %>
   <div class="menu-contents">
     <%= link_to new_income_path, class:"menu-img-content" do %>
       <%= image_tag("cat-1.png", class:"menu-icon") %>

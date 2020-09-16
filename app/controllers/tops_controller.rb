@@ -1,5 +1,9 @@
 class TopsController < ApplicationController
   def index
+    if current_user.present?
+      user = User.find(current_user.id)
+      @goal = user.goal
+    end
   end
 
   def show

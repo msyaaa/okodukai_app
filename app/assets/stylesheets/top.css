@@ -44,6 +44,12 @@
 /* ヘッダーここまで */
 
 /* メイン */
+.input-box {
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
 .menu-img-content {
   text-decoration: none;
 }

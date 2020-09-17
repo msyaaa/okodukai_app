@@ -41,6 +41,9 @@
           <%= income.price %>
           <span>円</span>
         </div>
+        <div>
+          <%= link_to '編集(へんしゅう)', edit_income_path(income.id), class:"edit-btn" %>
+        </div>
       </li>
     <% end %>
   <div>
@@ -93,6 +96,9 @@
         <div class='price-content'>
           <%= outgo.price %>
           <span>円</span>
+        </div>
+        <div>
+          <%= link_to '編集(へんしゅう)', edit_outgo_path(outgo.id), class:"edit-btn" %>
         </div>
       </li>
     <% end %>

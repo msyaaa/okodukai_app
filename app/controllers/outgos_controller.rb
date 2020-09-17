@@ -13,6 +13,26 @@ class OutgosController < ApplicationController
     end
   end
 
+  def  edit
+    @outgo = Outgo.find(params[:id])
+  end
+
+  def update
+    @outgo = Outgo.find(params[:id])
+    # user = User.find(current_user.id)
+    # @incomes = user.incomes.order(date: :desc)
+    # @outgos = Outgo.where(user_id: current_user.id).order(date: :desc)
+    if @outgo.update(outgo_params)
+      redirect_to top_path(current_user.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    
+  end
+
   private
   def outgo_params
     params.require(:outgo).permit(:description, :price, :date).merge(user_id: current_user.id)

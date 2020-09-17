@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   }
   # get 'tops/index'
   root to: 'tops#index'
-  resources :tops, only: [:show, :edit, :destroy]
+  resources :tops, only: [:show]
   resources :goals, only: [:create, :update]
-  resources :incomes, only: [:new, :create]
-  resources :outgos, only: [:new, :create]
+  resources :incomes, only: [:new, :create, :edit, :update, :destroy]
+  resources :outgos, only: [:new, :create, :edit, :update, :destroy]
 end

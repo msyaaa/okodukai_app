@@ -30,7 +30,14 @@ class OutgosController < ApplicationController
   end
 
   def destroy
-    
+    outgo = Outgo.find(params[:id])
+    user = User.find(current_user.id)
+    @outgos = user.outgos.order(date: :desc)
+    if outgo.destroy
+      redirect_to top_path(current_user.id)
+    else
+      render 'tops/show'
+    end
   end
 
   private

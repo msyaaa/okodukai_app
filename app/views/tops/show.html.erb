@@ -21,12 +21,13 @@
   <% end %>
 <% end %>
 
-<h1>今までの記ろく</h1>
+<h1>貯(た)めた記ろく</h1>
 <ul class='event-contents'>
   <div class="event-title">
     <li><span>日づけ</span></li>
     <li><span>メモ</span></li>
     <li><span>金がく</span></li>
+    <li><span>設定(せってい)</span></li>
   </div>
   <div class="event-content", id="event-index">
     <% @incomes.each do |income| %>
@@ -41,8 +42,15 @@
           <%= income.price %>
           <span>円</span>
         </div>
-        <div>
-          <%= link_to '編集(へんしゅう)', edit_income_path(income.id), class:"edit-btn" %>
+        <div id="edit-delete">
+          <div id="edit-delete-content">
+          <%# <div id="edit-btn-contet"> %>
+            <%= link_to '変更(へんこう)', edit_income_path(income.id), class:"edit-btn" %>
+          <%# </div> %>
+          <%# <div id="delete-btn-contet"> %>
+            <%= link_to '削除(さくじょ)', income_path(income.id), method: :delete, class:"delete-btn" %>
+          <%# </div> %>
+          </div>
         </div>
       </li>
     <% end %>
@@ -76,12 +84,13 @@
   <% end %>
 <% end %>
 
-<h1>今までの記ろく</h1>
+<h1>使(つか)った記ろく</h1>
 <ul class='event-contents'>
   <div class="event-title">
     <li><span>日づけ</span></li>
     <li><span>メモ</span></li>
     <li><span>金がく</span></li>
+    <li><span>設定(せってい)</span></li>
   </div>
   <div class="event-content">
     <% @outgos.each do |outgo| %>
@@ -90,15 +99,19 @@
           <%= outgo.date.strftime("%Y年%m月%d日") %>
         </div>
         <div class='description-content'>
-          <span>メモ</span>
           <%= outgo.description %>
         </div>
         <div class='price-content'>
           <%= outgo.price %>
           <span>円</span>
         </div>
-        <div>
-          <%= link_to '編集(へんしゅう)', edit_outgo_path(outgo.id), class:"edit-btn" %>
+        <div id="edit-delete">
+          <div id="edit-btn-contet">
+            <%= link_to '変更(へんこう)', edit_outgo_path(outgo.id), class:"edit-btn" %>
+          </div>
+          <div id="delete-btn-contet">
+            <%= link_to '削除(さくじょ)', outgo_path(outgo.id), method: :delete, class:"delete-btn" %>
+          </div>
         </div>
       </li>
     <% end %>

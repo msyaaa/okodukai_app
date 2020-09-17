@@ -30,7 +30,14 @@ class IncomesController < ApplicationController
   end
 
   def destroy
-    
+    income = Income.find(params[:id])
+    user = User.find(current_user.id)
+    @incomes = user.incomes.order(date: :desc)
+    if income.destroy
+      redirect_to top_path(current_user.id)
+    else
+      render 'tops/show'
+    end
   end
 
   private

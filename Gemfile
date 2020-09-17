@@ -64,3 +64,6 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem "simple_calendar", "~> 2.0"
 gem 'jquery-rails'
+group :production do
+  gem 'rails_12factor'
+end

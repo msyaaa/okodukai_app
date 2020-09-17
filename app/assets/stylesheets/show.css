@@ -2,21 +2,32 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border-top: 1px solid black;
 }
 .event-title {
   display: flex;
 }
 .event-title > li {
   width: calc(100vw / 3);
-  border: 1px solid black;
+  border-bottom: 1px solid black;
+  /* padding-left: 5px; */
+  text-align: center;
 }
 .event-content > li {
   display: flex;
 }
 .event-content > li > div {
   width: calc(100vw / 3);
-  border: 1px solid black;
+  border-bottom: 1px solid black;
+  /* padding-left: 5px; */
+  text-align: center;
+}
+
+#edit-delete {
+  display: flex;
+}
+#edit-delete-content {
+  margin: 0 auto;
 }
 
 /* .outgo-hidden {

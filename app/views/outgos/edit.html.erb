@@ -4,7 +4,7 @@
   <div class="form-wrap">
     <div class="form-group">
       <div class='form-label'>
-        <label class="form-text", for="date">日づけをせんたくしてね！</label>
+        <label class="form-text", for="date">日付(ひづけ)をせんたくしてね！</label>
       </div>
       <div class='input-date'>
         <%= f.date_field :date, id:"date" %>
@@ -13,7 +13,7 @@
 
     <div class="form-group">
       <div class="form-label">
-        <label class="form-text", for="price">金がくを入力してね！</label>  
+        <label class="form-text", for="price">金額(きんがく)を入力してね！</label>  
       </div>
       <div class="input-price">
         <%= f.text_field :price, class:"items-text", id:"price", placeholder:"0" %>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="save-btn-contents">
-      <%= f.submit "けってい" ,class:"save-btn" %>
+      <%= f.submit "決定(けってい)" ,class:"save-btn" %>
     </div>
   </div>
 <% end %>

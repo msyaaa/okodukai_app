@@ -3,15 +3,15 @@
 <%# ヘッダーここまで %>
 
 <div class="main">
-  <p>たまったお金</p>
-  <p>目ひょう</p>
+  <p>貯(た)まったお金</p>
+  <p>目標(もくひょう)</p>
   <% if current_user.present? && @goal.present? %>
     <div id="data-id" data_id=<%= @goal.id %>></div>
   <% end %>
   <%= form_with model: @goal, url: goals_path, class:"goal-form", id:"remove", local: true do |f| %>
     <%#= render "users/shared/error_messages", resource: f.object %>
-    <%= f.text_field :text, placeholder: '目ひょうを入力してね！(30文字まで)', class:"input-box" %>
-    <%= f.submit "けってい", id:"btn-label", class:"btn-hidden" %>
+    <%= f.text_field :text, placeholder: '目標(もくひょう)を入力してね！(30文字まで)', class:"input-box" %>
+    <%= f.submit "決定(けってい)", id:"btn-label", class:"btn-hidden" %>
   <% end %>
   <%# if current_user.present? && @goal.present? %>
     <%#= @goal.text %>
@@ -28,7 +28,7 @@
     <% if current_user.present? %>
       <%= link_to top_path(current_user.id), class:"menu-img-content" do %>
         <%= image_tag("cat-3.png", class:"menu-icon") %>
-        <p>りれき</p>
+        <p>履歴(りれき)</p>
       <% end %>
     <% end %>
   </div>

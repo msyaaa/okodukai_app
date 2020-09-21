@@ -19,6 +19,9 @@
         <%= f.text_field :price, class:"items-text", id:"price", placeholder:"0" %>
         <span>円</span>
       </div>  
+      <div class='flash-message'>
+        <%= flash[:alert] %>
+      </div>
     </div>
 
     <div class="form-group">

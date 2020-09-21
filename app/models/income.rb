@@ -12,4 +12,18 @@ class Income < ApplicationRecord
   def start_time
     self.date
   end
+  
+  before_destroy :should_not_destroy_if_negative
+
+  private
+  def should_not_destroy_if_negative
+    user = User.find(user_id)
+    income_sum = user.incomes.sum(:price)
+    outgo_sum = user.outgos.sum(:price)
+    total = income_sum - outgo_sum
+    income_price = Income.find(id).price
+    if total - income_price < 0
+      throw :abort
+    end
+  end
 end

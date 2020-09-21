@@ -4,6 +4,7 @@
 
 <div class="main">
   <p>貯(た)まったお金</p>
+  <%= @total %>
   <p>目標(もくひょう)</p>
   <% if current_user.present? && @goal.present? %>
     <div id="data-id" data_id=<%= @goal.id %>></div>

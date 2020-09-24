@@ -17,4 +17,17 @@
 
  * {
   box-sizing: border-box;
+  font-family: yomogifont;
+  font-size: 20px;
+  color: black;
+}
+a:hover {
+  opacity: 0.5;
+}
+
+@font-face {
+  font-family: "yomogifont";
+  src: url('/assets/yomogifont.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }

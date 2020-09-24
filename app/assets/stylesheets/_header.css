@@ -1,0 +1,62 @@
+/* ヘッダー */
+.top-page-header {
+  width: 100vw;
+  /* height: 120px; */
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  background: white;
+}
+.top-page-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+}
+
+/* ホームボタン */
+.top-img-content {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.okodukai-icon {
+  width: 80px;
+}
+.top-okodukai {
+  padding-top: 10px;
+  font-weight: bold;
+}
+/* ホームボタンここまで */
+
+/* ユーザー登録ボタン */
+.lists {
+  display: flex;
+}
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 5vw;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.logout {
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.login {
+  text-decoration: none;
+  margin-right: 5vw;
+  font-size: 25px;
+}
+
+.sign-up {
+  text-decoration: none;
+  font-size: 25px;
+}
+/* ユーザー登録ボタンここまで */
+
+/* ヘッダーここまで */

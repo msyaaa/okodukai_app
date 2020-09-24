@@ -1,124 +1,129 @@
 <%= render 'shared/header' %>
 
-<button id="income-btn">
-<h1>貯(た)まったお金</h1>
-</button>
-<button id="outgo-btn">
-  <h1>使(つか)ったお金</h1>
-</button>
+<%# 切り替えボタン %>
+<div class="switch">
+  <button id="income-btn">
+    <h1>たまったお金</h1>
+  </button>
+  <button id="outgo-btn">
+    <h1>つかったお金</h1>
+  </button>
+</div>
+<%# 切り替えボタンここまで %>
+
 <%# 収入の履歴 %>
 <div id="income-hidden">
-<%= month_calendar events: @incomes do |date, incomes| %>
-  <%= date.day %>
-  <% sum = 0 %>
-  <% incomes.each do |income| %>
-    <% sum += income.price%>
-  <% end %>
-  <% if sum != 0 %>
-    <div class="income-font">
-      <%= sum %>円
-    </div>
-  <% end %>
-<% end %>
-
-<h1>これまでの記ろく</h1>
-<div class='flash-message'>
-  <%= flash[:alert] %>
-</div>
-<ul class='event-contents'>
-  <div class="event-title">
-    <li><span>日付(ひづけ)</span></li>
-    <li><span>メモ</span></li>
-    <li><span>金額(きんがく)</span></li>
-    <li><span>設定(せってい)</span></li>
-  </div>
-  <div class="event-content", id="event-index">
-    <% @incomes.each do |income| %>
-      <li> 
-        <div class='date-content'>
-          <%= income.date.strftime("%Y年%m月%d日") %>
-        </div>
-        <div class='description-content'>
-          <%= income.description %>
-        </div>
-        <div class='price-content'>
-          <%= income.price %>
-          <span>円</span>
-        </div>
-        <div id="edit-delete">
-          <div id="edit-delete-content">
-          <%# <div id="edit-btn-contet"> %>
-            <%= link_to '変更(へんこう)', edit_income_path(income.id), class:"edit-btn" %>
-          <%# </div> %>
-          <%# <div id="delete-btn-contet"> %>
-            <%= link_to '削除(さくじょ)', income_path(income.id), method: :delete, class:"delete-btn" %>
-          <%# </div> %>
-          </div>
-        </div>
-      </li>
+  <%= month_calendar events: @incomes do |date, incomes| %>
+    <%= date.day %>
+    <% sum = 0 %>
+    <% incomes.each do |income| %>
+      <% sum += income.price%>
     <% end %>
-  <div>
-</ul>
+    <% if sum != 0 %>
+      <div class="budget-box">
+        <div class="budget-font">
+          <span id="income"><%= sum %>円</span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <h1 class="history-title">これまでの記ろく</h1>
+  <div class='flash-message'>
+    <%= flash[:alert] %>
+  </div>
+  <ul class='event-contents'>
+    <div class="event-title">
+      <li><span>日付(ひづけ)</span></li>
+      <li><span>メモ</span></li>
+      <li><span>金額(きんがく)</span></li>
+      <li><span>設定(せってい)</span></li>
+    </div>
+    <div class="event-content", id="event-index">
+      <% @incomes.each do |income| %>
+        <li> 
+          <div class='date-content'>
+            <%= income.date.strftime("%Y年%m月%d日") %>
+          </div>
+          <div class='description-content'>
+            <%= income.description %>
+          </div>
+          <div class='price-content'>
+            <span><%= income.price %>円</span>
+          </div>
+          <div id="edit-delete">
+            <div id="edit-delete-content">
+            <%# <div id="edit-btn-contet"> %>
+              <%= link_to '変更(へんこう)', edit_income_path(income.id), class:"edit-btn" %>
+            <%# </div> %>
+            <%# <div id="delete-btn-contet"> %>
+              <%= link_to '削除(さくじょ)', income_path(income.id), method: :delete, class:"delete-btn" %>
+            <%# </div> %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    <div>
+  </ul>
 </div>
 <%# 収入の履歴ここまで %>
 
 <%#= month_calendar events: @all do |date, all| %>
-  <%#= date.day %>
-  <%# all.each do |i| %>
-    <%# <div> %>
-      <%#= i.price %>
-    <%# </div> %>
-  <%# end %>
+<%#= date.day %>
+<%# all.each do |i| %>
+  <%# <div> %>
+    <%#= i.price %>
+  <%# </div> %>
+<%# end %>
 <%# end %>
 
 
 <%# 支出の履歴 %>
 <div id="outgo-hidden">
-<%= month_calendar events: @outgos do |date, outgos| %>
-  <%= date.day %>
-  <% sum = 0 %>
-  <% outgos.each do |outgo| %>
-    <% sum += outgo.price%>
-  <% end %>
-  <% if sum != 0 %>
-    <div class="outgo-font">
-      <%= sum %>円
-    </div>
-  <% end %>
-<% end %>
-
-<h1>これまでの記ろく</h1>
-<ul class='event-contents'>
-  <div class="event-title">
-    <li><span>日付(ひづけ)</span></li>
-    <li><span>メモ</span></li>
-    <li><span>金額(きんがく)</span></li>
-    <li><span>設定(せってい)</span></li>
-  </div>
-  <div class="event-content">
-    <% @outgos.each do |outgo| %>
-      <li> 
-        <div class='date-content'>
-          <%= outgo.date.strftime("%Y年%m月%d日") %>
-        </div>
-        <div class='description-content'>
-          <%= outgo.description %>
-        </div>
-        <div class='price-content'>
-          <%= outgo.price %>
-          <span>円</span>
-        </div>
-        <div id="edit-delete">
-          <div id="edit-btn-contet">
-            <%= link_to '変更(へんこう)', edit_outgo_path(outgo.id), class:"edit-btn" %>
-          </div>
-          <div id="delete-btn-contet">
-            <%= link_to '削除(さくじょ)', outgo_path(outgo.id), method: :delete, class:"delete-btn" %>
-          </div>
-        </div>
-      </li>
+  <%= month_calendar events: @outgos do |date, outgos| %>
+    <%= date.day %>
+    <% sum = 0 %>
+    <% outgos.each do |outgo| %>
+      <% sum += outgo.price%>
     <% end %>
-  <div>
-</ul>
+    <% if sum != 0 %>
+      <div class="budget-box">
+        <div class="budget-font">
+          <span id="outgo"><%= sum %>円</span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <h1 class="history-title">これまでの記ろく</h1>
+  <ul class='event-contents'>
+    <div class="event-title">
+      <li><span>日付(ひづけ)</span></li>
+      <li><span>メモ</span></li>
+      <li><span>金額(きんがく)</span></li>
+      <li><span>設定(せってい)</span></li>
+    </div>
+    <div class="event-content">
+      <% @outgos.each do |outgo| %>
+        <li> 
+          <div class='date-content'>
+            <%= outgo.date.strftime("%Y年%m月%d日") %>
+          </div>
+          <div class='description-content'>
+            <%= outgo.description %>
+          </div>
+          <div class='price-content'>
+            <span><%= outgo.price %>円</span>
+          </div>
+          <div id="edit-delete">
+            <div id="edit-delete-content">
+              <%= link_to '変更(へんこう)', edit_outgo_path(outgo.id), class:"edit-btn" %>
+              <%= link_to '削除(さくじょ)', outgo_path(outgo.id), method: :delete, class:"delete-btn" %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    <div>
+  </ul>
 </div>
 <%# 支出の履歴ここまで %>

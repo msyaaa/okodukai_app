@@ -1,10 +1,37 @@
+.simple-calendar {
+  background-color: rgba(255, 255, 255, 0.75);
+  .calendar-heading {
+    text-align: center;
+    background-color: rgba(239, 255, 239, 0.75);
+    padding: 5px 0;
+  }
+  .calendar-heading a {
+    font-size: 30px;
+  }
+  .calendar-title {
+    font-size: 30px;
+  }
+  thead {
+    background-color: rgba(160, 160, 160, 0.75);
+  }
+}
+// カレンダー内表示
 a {
   text-decoration: none;
 }
-
-.income-font {
+.budget-box {
+  height: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+.budget-font {
+  display: flex;
+  align-items: flex-end;
+}
+#income {
   color: blue;
 }
-.outgo-font {
+#outgo {
   color: red;
 }
+// カレンダー内表示ここまで

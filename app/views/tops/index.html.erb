@@ -11,7 +11,7 @@
       <% end %>
       <%= form_with model: @goal, url: goals_path, class:"goal-form", id:"remove", local: true do |f| %>
         <%#= render "users/shared/error_messages", resource: f.object %>
-        <%= f.text_field :text, placeholder: '目標(もくひょう)を入力してね！(30文字まで)', class:"input-box", size:"40×1" %>
+        <%= f.text_area :text, placeholder: '目標(もくひょう)を入力してね！(30文字まで)', class:"input-box", maxlength:"30" %>
         <%= f.submit "決定(けってい)", id:"btn-label", class:"btn-hidden" %>
       <% end %>
     </div>

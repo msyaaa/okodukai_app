@@ -46,12 +46,13 @@ body:before {
   margin: 20px 0;
 }
 .goal-text {
-  padding-left: 150px;
+  padding-left: 190px;
 }
 .input-box {
   border: none;
   outline: none;
   text-align: center;
+  vertical-align: middle;
   background: #fff0cd;
   box-shadow: 0px 0px 0px 5px #fff0cd;
   border: dashed 2px white;

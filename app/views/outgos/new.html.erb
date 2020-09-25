@@ -1,13 +1,14 @@
 <%= render 'shared/second-header' %>
-<%= form_with model: @outgo, local: true do |f| %>
-  <%= render "users/shared/error_messages", resource: f.object %>
+<%= form_with model: @outgo, class:"budget-main", local: true do |f| %>
   <div class="form-wrap">
+    <h1 class="form-title">つかったお金</h1>
+    <%= render "users/shared/error_messages", resource: f.object %>
     <div class="form-group">
       <div class='form-label'>
         <label class="form-text", for="date">日付(ひづけ)をせんたくしてね！</label>
       </div>
       <div class='input-date'>
-        <%= f.date_field :date, id:"date" %>
+        <%= f.date_field :date, id:"date", class:"input-default" %>
       </div>
     </div>
 
@@ -16,7 +17,7 @@
         <label class="form-text", for="price">金額(きんがく)を入力してね！</label>  
       </div>
       <div class="input-price">
-        <%= f.text_field :price, class:"items-text", id:"price", placeholder:"0" %>
+        <%= f.text_field :price, class:"input-default", id:"price", placeholder:"0" %>
         <span>円</span>
       </div> 
       <div class='flash-message'>
@@ -29,7 +30,7 @@
         <label class="form-text", for="text">メモを書いてね！</label>  
       </div>
       <div class="input-text">
-        <%= f.text_area :description, id:"text", placeholder:"50文字まで" %>
+        <%= f.text_area :description, id:"text", class:"input-default", placeholder:"50文字まで" %>
       </div>
     </div>
 

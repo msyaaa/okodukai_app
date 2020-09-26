@@ -4,10 +4,10 @@ ja:
      user:
        nickname: ニックネーム
      income:
-       price: 金がく
+       price: 金額(きんがく)
        description: メモ
-       date: 日づけ
+       date: 日付(ひづけ)
      outgo:
-       price: 金がく
+       price: 金額(きんがく)
        description: メモ
-       date: 日づけ
+       date: 日付(ひづけ)

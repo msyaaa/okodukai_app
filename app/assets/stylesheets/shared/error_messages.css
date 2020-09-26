@@ -1,7 +1,7 @@
 #error_explanation {
   display: flex;
   justify-content: center;
-  margin-top: 5vh;
+  margin-top: 3vh;
 }
 .error-message {
   list-style: circle;

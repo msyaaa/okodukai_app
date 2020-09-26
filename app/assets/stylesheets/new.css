@@ -43,19 +43,23 @@
   border: 1px solid #ccc;
   resize: none;
 }
+.input-price {
+  display: flex;
+}
 .input-price > .input-default {
-  width: 90%;
   text-align: right;
   padding-right: 10px;
 }
 .input-price > span {
+  padding-top: 20px;
+  margin-left: 10px;
   font-weight: bold;
 }
 
 .save-btn-contents {
   width: 40%;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 .save-btn {
   width: 100%;

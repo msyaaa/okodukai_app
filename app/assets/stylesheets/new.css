@@ -6,8 +6,8 @@
   justify-content: center;
 }
 .form-wrap {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.75);
+  width: 70%;
+  /* background-color: rgba(255, 255, 255, 0.75); */
 }
 .form-title {
   font-weight: bold;
@@ -23,6 +23,9 @@
   flex-direction: column;
   margin: 0 auto;
   padding-top: 20px;
+}
+.form-group:nth-of-type(1) {
+  padding-top: 50px;
 }
 .form-label {
   width: 100%;
@@ -44,6 +47,9 @@
   width: 90%;
   text-align: right;
   padding-right: 10px;
+}
+.input-price > span {
+  font-weight: bold;
 }
 
 .save-btn-contents {

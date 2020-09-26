@@ -1,0 +1,10 @@
+#error_explanation {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+.error-message {
+  list-style: circle;
+  color: red;
+  padding-bottom: 1vh;
+}

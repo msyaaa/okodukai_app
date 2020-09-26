@@ -26,25 +26,27 @@ class IncomesController < ApplicationController
     # user = User.find(current_user.id)
     # @incomes = user.incomes.order(date: :desc)
     # @outgos = Outgo.where(user_id: current_user.id).order(date: :desc)
-    if @income.price - total <= income_params[:price].to_i && income_params[:price] != ""
+    # if @income.price - total <= income_params[:price].to_i && income_params[:price] != ""
+    if @income.price - total <= income_params[:price].to_i
       if @income.update(income_params)
         redirect_to top_path(current_user.id)
       else
         render :edit
       end
-    elsif @income.price - total > income_params[:price].to_i
-      if @income.update(income_params)
-        flash.now[:alert] = '残(のこ)っているお金が足りないよ！入力をやり直してね！'
-        render :edit
-      else
-        render :edit
-      end
+    # elsif @income.price - total > income_params[:price].to_i
+    #   if @income.update(income_params)
+    #     flash.now[:alert] = '残(のこ)っているお金が足りないよ！入力をやり直してね！'
+    #     render :edit
+    #   else
+    #     render :edit
+    #   end
     else
-      if @outgo.update(outgo_params)
-        render :edit
-      else
-        render :edit
-      end
+      # if @outgo.update(outgo_params)
+      #   render :edit
+      # else
+      flash.now[:alert] = '残(のこ)っているお金が足りないよ！入力をやり直してね！'
+      render :edit
+      # end
     end
   end
 

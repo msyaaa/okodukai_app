@@ -9,9 +9,10 @@
       <% if current_user.present? && @goal.present? %>
         <div id="data-id" data_id=<%= @goal.id %>></div>
       <% end %>
+      <%= flash[:alert] %>
       <%= form_with model: @goal, url: goals_path, class:"goal-form", id:"remove", local: true do |f| %>
         <%#= render "users/shared/error_messages", resource: f.object %>
-        <%= f.text_area :text, placeholder: '目標(もくひょう)を入力してね！(30文字まで)', class:"input-box", maxlength:"30" %>
+        <%= f.text_area :text, placeholder: '目標(もくひょう)を入力してね！(25文字まで)', class:"input-box", maxlength:"25" %>
         <%= f.submit "決定(けってい)", id:"btn-label", class:"btn-hidden" %>
       <% end %>
     </div>
@@ -25,6 +26,12 @@
       <p class="saving-title">たまったお金</p>
       <p class="saving-total"><%= @total %>円</p>
     </div>
+    <% unless user_signed_in? %>
+      <div class="saving">
+        <p class="saving-title">たまったお金</p>
+        <p class="saving-total"><%= @total %>---円</p>
+      </div>
+    <% end %>
     <div class="circle-box">
       <div class="item">
         <%= link_to new_income_path, class:"menu-img-content" do %>
@@ -41,7 +48,7 @@
       <div class="item">
         <% if current_user.present? %>
           <%= link_to top_path(current_user.id), class:"menu-img-content" do %>
-            <%= image_tag("cats-1.png", class:"menu-icon") %>
+            <%= image_tag("cats-1.png", class:"menu-icon3") %>
             <p>履歴(りれき)</p>
           <% end %>
         <% end %>

@@ -68,6 +68,7 @@ body:before {
   /* padding: 0.2em 0.5em; */
   padding: 20px 0 0;
   font-weight: bold;
+  resize: none;
 }
 .btn-hidden {
   margin-top:  15px;

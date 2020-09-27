@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [:index]
-  before_action :basic_auth
+  # before_action :basic_auth
 
   def after_sign_in_path_for(resource)
     root_path(resource)

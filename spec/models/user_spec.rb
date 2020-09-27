@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
           @user.save
           another_user = FactoryBot.build(:user, nickname: @user.nickname)
           another_user.valid?
-          expect(another_user.errors.full_messages).to include('ニックネームはすでに存在します')
+          expect(another_user.errors.full_messages).to include('ニックネームはすでに存在(そんざい)します')
         end
         it 'passwordが空では登録できないこと' do
           @user.password = nil
@@ -37,7 +37,7 @@ RSpec.describe User, type: :model do
         it 'passwordが存在してもpassword_confirmationが空では登録できないこと' do
           @user.password_confirmation = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
+          expect(@user.errors.full_messages).to include('パスワード確認用(かくにんよう)とパスワードの入力が一致しません')
         end
         it 'passwordが５文字以下であれば登録できないこと' do
           @user.password = '12345'

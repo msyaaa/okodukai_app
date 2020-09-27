@@ -20,17 +20,17 @@ RSpec.describe Outgo, type: :model do
         it 'priceが空では登録できないこと' do
           @outgo.price = nil
           @outgo.valid?
-          expect(@outgo.errors.full_messages).to include('金がくを入力してください')
+          expect(@outgo.errors.full_messages).to include('金額(きんがく)を入力してください')
         end
         it 'priceが0未満であれば保存できない' do
           @outgo.price = -1
           @outgo.valid?
-          expect(@outgo.errors.full_messages).to include('金がくは0より大きい値にしてください')
+          expect(@outgo.errors.full_messages).to include('金額(きんがく)は0より大きい値(あたい)にしてください')
         end
         it 'priceが9999999より大きければ保存できない' do
           @outgo.price = 10_000_000
           @outgo.valid?
-          expect(@outgo.errors.full_messages).to include('金がくは10000000より小さい値にしてください')
+          expect(@outgo.errors.full_messages).to include('金額(きんがく)は10000000より小さい値(あたい)にしてください')
         end
         it 'descriptionが空では登録できないこと' do
           @outgo.description = nil
@@ -40,12 +40,12 @@ RSpec.describe Outgo, type: :model do
         it 'メモが51文字以上の時は登録できない' do
           @outgo.description = Faker::Lorem.paragraphs(number: 50)
           @outgo.valid?
-          expect(@outgo.errors.full_messages).to include('メモは50文字以内で入力してください')
+          expect(@outgo.errors.full_messages).to include('メモは50文字以内(いない)で入力してください')
         end
         it 'dateが空では登録できないこと' do
           @outgo.date = nil
           @outgo.valid?
-          expect(@outgo.errors.full_messages).to include('日づけを入力してください')
+          expect(@outgo.errors.full_messages).to include('日付(ひづけ)を入力してください')
         end
       end
     end

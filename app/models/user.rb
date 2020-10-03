@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname, uniqueness: { message: 'はすでに存在(そんざい)します' }
-    VALID_PASSWORD = /\A[a-zA-Z0-9]+\z/
+    VALID_PASSWORD = /\A[a-zA-Z0-9]+\z/.freeze
     validates :password, confirmation: true, format: { with: VALID_PASSWORD, message: 'は不正(ふせい)な値(あたい)です' }, length: { minimum: 6 }
     validates :password_confirmation, length: { minimum: 6, message: 'は6文字以上(いじょう)で入力してください' }
   end
@@ -18,7 +18,7 @@ class User < ApplicationRecord
   def email_required?
     false
   end
-  
+
   def email_changed?
     false
   end

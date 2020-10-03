@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "Outgos", type: :request do
-
+RSpec.describe 'Outgos', type: :request do
 end

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     root_path(resource)
   end
+  # Basic認証
   # private
 
   # def basic_auth
@@ -12,4 +13,5 @@ class ApplicationController < ActionController::Base
   #     username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
   #   end
   # end
+  # //Basic認証
 end

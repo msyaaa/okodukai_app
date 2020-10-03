@@ -1,5 +1,4 @@
 class GoalsController < ApplicationController
-
   def create
     @goal = Goal.new(goal_params)
     if @goal.valid?
@@ -21,10 +20,13 @@ class GoalsController < ApplicationController
       redirect_to root_path
     end
   end
+
   private
+
   def goal_params
     params.permit(:text).merge(user_id: current_user.id)
   end
+
   def goal_params2
     params.require(:goal).permit(:text).merge(user_id: current_user.id)
   end
